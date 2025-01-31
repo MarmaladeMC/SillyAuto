@@ -1,0 +1,40 @@
+package org.firstinspires.ftc.teamcode;
+
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
+
+@Config
+public final class MecanumDrive
+{
+    public static class Params
+    {
+         public String leftFrontDriveName = "leftFront";
+        public String leftBackDriveName = "leftBack";
+        public String rightFrontDriveName = "rightFront";
+        public String rightBackDriveName = "rightBack";
+
+        public DcMotorSimple.Direction leftFrontDriveDirection = DcMotorSimple.Direction.REVERSE;
+        public DcMotorSimple.Direction leftBackDriveDirection = DcMotorSimple.Direction.REVERSE;
+        public DcMotorSimple.Direction rightFrontDriveDirection = DcMotorSimple.Direction.FORWARD;
+        public DcMotorSimple.Direction rightBackDriveDirection = DcMotorSimple.Direction.FORWARD;
+
+        leftFront = hardwareMap.get(DcMotorEx.class, leftFrontDriveName);
+        leftBack = hardwareMap.get(DcMotorEx.class, leftBackDriveName);
+        rightBack = hardwareMap.get(DcMotorEx.class, rightBackDriveName);
+        rightFront = hardwareMap.get(DcMotorEx.class, rightFrontDriveName);
+
+        leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        leftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        // TODO: reverse motor directions if needed
+        leftFront.setDirection(leftFrontDriveDirection);
+        leftBack.setDirection(leftBackDriveDirection);
+        rightBack.setDirection(rightBackDriveDirection);
+        rightFront.setDirection(rightFrontDriveDirection);
+
+    }
+}
